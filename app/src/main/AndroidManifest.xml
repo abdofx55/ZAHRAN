@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zahran">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        tools:replace="android:supportsRtl">
+        <activity android:name=".Activities.AboutActivity"></activity>
+        <activity
+            android:name=".Activities.InformationActivity.InformationActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".Activities.AddPersonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.MainActivity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.SplashScreen"
+            android:screenOrientation="portrait"
+            android:exported = "true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".JobScheduleService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".Receiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="action_share" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
