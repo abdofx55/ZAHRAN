@@ -21,13 +21,19 @@ def upload_to_firestore(records):
         return
 
     try:
-        # Initialize Firebase App using Application Default Credentials (ADC)
-        cred = credentials.ApplicationDefault()
-        firebase_admin.initialize_app(cred, {
-            'projectId': 'zahran-94274',
-        })
+        # Initialize Firebase App using Service Account JSON or fall back to ADC
+        service_account_path = 'service-account.json'
+        if os.path.exists(service_account_path):
+            cred = credentials.Certificate(service_account_path)
+            firebase_admin.initialize_app(cred)
+            print("Firebase Admin SDK initialized successfully using 'service-account.json'.")
+        else:
+            cred = credentials.ApplicationDefault()
+            firebase_admin.initialize_app(cred, {
+                'projectId': 'zahran-94274',
+            })
+            print("Firebase Admin SDK initialized successfully with local credentials (ADC).")
         db = firestore.client()
-        print("Firebase Admin SDK initialized successfully with local credentials (ADC).")
         
         # Batch write documents to 'family' collection
         # Firestore batches are capped at 500 operations. We commit every 400.
