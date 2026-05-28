@@ -73,8 +73,9 @@ dependencies {
     // Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)
 
-    // Firebase (Firestore + FCM) via Firebase BoM
+    // Firebase (Firestore + FCM + Analytics) via Firebase BoM
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.analytics-ktx)
 }
