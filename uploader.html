@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستورد بيانات شجرة عائلة زهران</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1B5E20 0%, #0D3E14 100%);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #D4AF37; /* Golden Accent */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        p.subtitle {
+            font-size: 14px;
+            color: #E0E0E0;
+            margin-bottom: 30px;
+        }
+        .file-input-wrapper {
+            margin-bottom: 25px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .file-label {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .file-label:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: #D4AF37;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #D4AF37;
+        }
+        .btn-upload {
+            background: linear-gradient(90deg, #D4AF37 0%, #AA800A 100%);
+            color: #000000;
+            border: none;
+            border-radius: 12px;
+            padding: 14px 35px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            width: 100%;
+        }
+        .btn-upload:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+        .btn-upload:active {
+            transform: translateY(1px);
+        }
+        .btn-upload:disabled {
+            background: #757575;
+            color: #BDBDBD;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        .progress-container {
+            margin-top: 30px;
+            display: none;
+        }
+        .progress-bar-wrapper {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            background-color: #D4AF37;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .status-text {
+            font-size: 14px;
+            color: #E0E0E0;
+        }
+        .alert {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        .alert-info {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: #FFE082;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            text-align: right;
+            line-height: 1.6;
+        }
+        .alert-success {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #A5D6A7;
+            border: 1px solid rgba(76, 175, 80, 0.4);
+        }
+        .alert-error {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #EF9A9A;
+            border: 1px solid rgba(244, 67, 54, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>مستورد بيانات شجرة عائلة زهران</h1>
+    <p class="subtitle">رفع وتحديث بيانات Firestore مباشرة من المتصفح لتخطي جدار الحماية</p>
+
+    <!-- Rule Check Notice -->
+    <div class="alert alert-info" style="display: block;">
+        <strong>تنبيه هام قبل البدء:</strong><br>
+        تأكد من أن قواعد الحماية لـ Firestore (Firestore Security Rules) في وحدة التحكم الخاصة بك تسمح بالكتابة مؤقتاً، على سبيل المثال:<br>
+        <code style="direction: ltr; display: block; background: rgba(0,0,0,0.3); padding: 5px; margin-top: 5px; border-radius: 4px; color: #fff;">allow write: if true;</code>
+        (يمكنك إعادتها لقواعد القراءة فقط <code>allow write: false;</code> فور اكتمال الرفع).
+    </div>
+
+    <div class="file-input-wrapper">
+        <label for="json-file" class="file-label">
+            اختر ملف البيانات (zahran_family_tree_migrated.json)
+        </label>
+        <input type="file" id="json-file" accept=".json">
+        <div id="file-name-display" class="file-name">لم يتم اختيار أي ملف بعد</div>
+    </div>
+
+    <button id="upload-btn" class="btn-upload" disabled>ابدأ عملية الرفع</button>
+
+    <div id="progress-section" class="progress-container">
+        <div class="progress-bar-wrapper">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="status-label" class="status-text">جاري تحضير الملف...</div>
+    </div>
+
+    <div id="success-alert" class="alert alert-success">✓ تم رفع كافة السجلات الـ 660 بنجاح إلى قاعدة البيانات!</div>
+    <div id="error-alert" class="alert alert-error"></div>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, doc, writeBatch } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Configuration parsed automatically from your google-services.json
+    const firebaseConfig = {
+        apiKey: "AIzaSyC95AOP7EVoppDDJwsn5nYyBQ_59rqnurM",
+        authDomain: "zahran-94274.firebaseapp.com",
+        projectId: "zahran-94274",
+        storageBucket: "zahran-94274.firebasestorage.app",
+        messagingSenderId: "135136650222",
+        appId: "1:135136650222:android:eaef994e2d9f28d773e4ff"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const fileInput = document.getElementById('json-file');
+    const fileNameDisplay = document.getElementById('file-name-display');
+    const uploadBtn = document.getElementById('upload-btn');
+    const progressSection = document.getElementById('progress-section');
+    const progressBar = document.getElementById('progress-bar');
+    const statusLabel = document.getElementById('status-label');
+    const successAlert = document.getElementById('success-alert');
+    const errorAlert = document.getElementById('error-alert');
+
+    let recordsToUpload = [];
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            fileNameDisplay.textContent = file.name;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                try {
+                    recordsToUpload = JSON.parse(evt.target.result);
+                    uploadBtn.disabled = false;
+                    errorAlert.style.display = 'none';
+                } catch (err) {
+                    errorAlert.textContent = "خطأ في قراءة ملف JSON. تأكد من صحة الملف.";
+                    errorAlert.style.display = 'block';
+                    uploadBtn.disabled = true;
+                }
+            };
+            reader.readAsText(file);
+        }
+    });
+
+    uploadBtn.addEventListener('click', async () => {
+        if (recordsToUpload.length === 0) return;
+        
+        uploadBtn.disabled = true;
+        fileInput.disabled = true;
+        progressSection.style.display = 'block';
+        successAlert.style.display = 'none';
+        errorAlert.style.display = 'none';
+
+        const total = recordsToUpload.length;
+        let index = 0;
+        const batchSize = 100; // Batch size for upload
+
+        try {
+            while (index < total) {
+                const batch = writeBatch(db);
+                const chunk = recordsToUpload.slice(index, index + batchSize);
+                
+                chunk.forEach(person => {
+                    const docRef = doc(db, "family", person.id.toString());
+                    batch.set(docRef, person);
+                });
+
+                statusLabel.textContent = `جاري رفع السجلات من ${index + 1} إلى ${Math.min(index + batchSize, total)} من أصل ${total}...`;
+                await batch.commit();
+                
+                index += chunk.length;
+                const percentage = Math.min((index / total) * 100, 100);
+                progressBar.style.width = `${percentage}%`;
+            }
+
+            statusLabel.textContent = "اكتمل الرفع بنجاح!";
+            successAlert.style.display = 'block';
+        } catch (err) {
+            console.error(err);
+            errorAlert.textContent = `خطأ أثناء الرفع: ${err.message || err}`;
+            errorAlert.style.display = 'block';
+            uploadBtn.disabled = false;
+            fileInput.disabled = false;
+        }
+    });
+</script>
+
+</body>
+</html>
