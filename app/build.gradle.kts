@@ -67,6 +67,7 @@ dependencies {
 
     // Dagger-Hilt DI
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
     annotationProcessor(libs.hilt.compiler) // For kapt/ksp later if needed, but Hilt provides standard annotationProcessor/ksp
 
     // Kotlinx Serialization

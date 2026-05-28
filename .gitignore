@@ -12,3 +12,10 @@
 /captures
 .externalNativeBuild
 .cxx
+
+# Firebase credentials and migration files
+service-account.json
+zahran_family_tree_migrated.json
+db_info.txt
+relationship_info.txt
+kamal_records.txt

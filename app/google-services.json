@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "123456789012",
-    "project_id": "zahran-family-tree-mock",
-    "storage_bucket": "zahran-family-tree-mock.appspot.com"
+    "project_number": "135136650222",
+    "project_id": "zahran-94274",
+    "storage_bucket": "zahran-94274.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:1234567890abcdef",
+        "mobilesdk_app_id": "1:135136650222:android:eaef994e2d9f28d773e4ff",
         "android_client_info": {
           "package_name": "com.zahran"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "mock_api_key_for_compilation"
+          "current_key": "AIzaSyC95AOP7EVoppDDJwsn5nYyBQ_59rqnurM"
         }
       ],
       "services": {

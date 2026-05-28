@@ -4,6 +4,9 @@ import re
 import os
 import sys
 
+# Force gRPC to use native DNS resolver to bypass unreachable IPv6 address connection failures on Windows
+os.environ["GRPC_DNS_RESOLVER"] = "native"
+
 def normalize_name(name):
     if not name:
         return ""
