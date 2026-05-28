@@ -12,10 +12,8 @@
     <string name="المزيد">المزيد من التطبيقات</string>
     <string name="حول_التطبيق">حول التطبيق</string>
 
-
     <string name="mail">Mail</string>
     <string name="whats">WhatsApp</string>
-
 
     <string name="مشاركة_بواسطة">مشاركة بواسطة :</string>
     <string name="عنوان_المشاركة">يسعدنا انضامك إلي العائلة 👨‍👩‍👧‍👦</string>
@@ -25,9 +23,7 @@
     <string name="نص_الميل">برجاء إضافة الأسماء التالية للعائلة :</string>
     <string name="لا_يوجد_ميل">لا يوجد تطبيق لإرسال الميل</string>
     <string name="لا_يوجد_واتس">تطبيق الواتساب غير مثبت علي هذا الجهاز</string>
-
     <string name="لا_يوجد_جوجول">متجر جوجل غير مثبت علي هذا الجهاز</string>
-
 
     <string name="الرقم">201095449725</string>
     <string name="الميل">AHamdy2508@yahoo.com</string>
@@ -42,9 +38,13 @@
     <string name="about_text2">تم إضافة المزيد من الأسماء لشجرة العائلة \n تم إضافة اسم الشهرة \n تم حل بعض المشكلات التقنية \n توافق التطبيق مع أصدارات أقدم من أندرويد \n تحسينات في واجهة المستخدم \n تم إضافة الاشعارات</string>
     <string name="about_text3">امكانية الاضافة والتعديل علي قاعدة البيانات مباشرة \n اضافة حساب خاص لكل اسم يحتوي علي كافة المعلومات عنه \n اضافة شات جماعي لأبناء العائلة \n اضافة صفحة خاصة بمناسبات العائلة \n اضافة صفحة خاصة بالاعلانات والخصومات المقدمة لأبناء العائلة \n \n لمزيد من الاقتراحات يرجي التواصل من خلال :</string>
 
-
     <string name="notification_title">يسعدنا انضامك إلي العائلة 👨‍👩‍👧‍👦</string>
     <string name="notification_text">ساهم معنا في إكمال شجرة عائلتك بمشاركة التطبيق مع أقاربك وأصدقائك.</string>
     <string name="main_notification_channel_name">Primary</string>
-
+    
+    <string name="no_members_found">لا يوجد أفراد مسجلون في هذا الفرع</string>
+    <string name="try_again">إعادة المحاولة</string>
+    <string name="error_loading">حدث خطأ أثناء تحميل البيانات</string>
+    <string name="loading">جاري التحميل…</string>
+    <string name="back">رجوع</string>
 </resources>

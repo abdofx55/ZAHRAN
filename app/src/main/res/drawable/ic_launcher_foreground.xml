@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Family Tree shape drawing -->
+    <path
+        android:fillColor="#D4AF37"
+        android:pathData="M12,2L4,7v3c0,5.25 3.42,10.16 8,12 4.58,-1.84 8,-6.75 8,-12V7L12,2zm0,4a2,2 0 1,1 0,4 2,2 0 0,1 0,-4zm4,8H8v-1c0,-1.33 2.67,-2 4,-2 1.33,0 4,0.67 4,2v1z" />
+</vector>

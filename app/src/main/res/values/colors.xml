@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#43433e</color>
-    <color name="colorPrimaryDark">#272623</color>
-    <color name="colorAccent">#4a4a48</color>
-    <color name="background_color">#f0ebcd</color>
-    <color name="family">#93907f</color>
-
-    <color name="back">#f0ebcd</color>
-
-
-
-
-
+    <!-- Premium Emerald Green & Gold color palette tailored for a family tree app -->
+    <color name="primary">#1B5E20</color>
+    <color name="primary_container">#C8E6C9</color>
+    <color name="secondary">#8D6E63</color>
+    <color name="accent_gold">#D4AF37</color>
+    <color name="background">#FAFAFA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="error">#C62828</color>
+    
+    <!-- Splash Screen Specific Colors -->
+    <color name="splash_background">#1B5E20</color>
+    <color name="splash_icon_tint">#FFFFFF</color>
 </resources>

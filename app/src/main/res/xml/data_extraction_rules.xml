@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Sample data extraction rules pointing to what directories to backup.
+   By default, we exclude nothing as there is no sensitive local SQLite (we use Firestore caching).
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="device_fcm_token.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="device_fcm_token.xml" />
+    </device-transfer>
+</data-extraction-rules>

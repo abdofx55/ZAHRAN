@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Zahran" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+
+    <!-- Splash Screen theme using the AndroidX Splash Screen API. -->
+    <style name="Theme.Zahran.MySplash" parent="Theme.SplashScreen">
+        <!-- Set the splash screen background, icon and animation duration. -->
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <!-- Use standard round launcher icon or customized logo -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/primary</item>
+        
+        <!-- Post-splash screen theme to load after the splash activity terminates -->
+        <item name="postSplashScreenTheme">@style/Theme.Zahran</item>
+    </style>
+</resources>
