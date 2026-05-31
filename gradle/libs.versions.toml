@@ -1,8 +1,8 @@
 [versions]
 # Tooling and Build Systems
-agp = "8.11.0"
+agp = "8.7.2"
 kotlin = "2.1.21"
-coreKtx = "1.15.0"
+coreKtx = "1.13.1"
 lifecycleRuntime = "2.8.7"
 activityCompose = "1.9.3"
 
@@ -12,7 +12,7 @@ navigationCompose = "2.8.5"
 splashScreen = "1.0.1"
 
 # Dependency Injection
-hilt = "2.51.1"
+hilt = "2.56.2"
 hiltNavigationCompose = "1.2.0"
 
 # Serialization

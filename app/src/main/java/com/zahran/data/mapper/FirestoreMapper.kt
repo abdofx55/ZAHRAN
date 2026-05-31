@@ -2,6 +2,10 @@ package com.zahran.data.mapper
 
 import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.serialization.json.*
+@PublishedApi internal val json = Json {
+    ignoreUnknownKeys = true
+    coerceInputValues = true
+}
 
 /**
  * Utility to convert raw JVM/Firebase types to Kotlinx Serialization JsonElements.
@@ -34,10 +38,7 @@ fun Map<*, *>.toJsonObject(): JsonObject {
  */
 inline fun <reified T> Map<String, Any?>.toSerializableObject(): T {
     val jsonObject = this.toJsonObject()
-    return Json {
-        ignoreUnknownKeys = true
-        coerceInputValues = true
-    }.decodeFromJsonElement(jsonObject)
+    return json.decodeFromJsonElement(jsonObject)
 }
 
 /**

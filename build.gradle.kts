@@ -1,9 +1,22 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.compose) apply false
-    alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.hilt.android) apply false
-    alias(libs.plugins.google.services) apply false
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://repo.huaweicloud.com/repository/gmaven/") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://repo.huaweicloud.com/repository/maven/") }
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.1.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.21")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:2.1.21")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.56.2")
+        classpath("com.google.gms:google-services:4.4.2")
+    }
 }
+
+plugins {
+    // Empty block to satisfy DSL format
+}
+
